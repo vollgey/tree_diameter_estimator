@@ -1,6 +1,6 @@
-#include "estimation.hpp"
+#include "diameter_estimation.hpp"
 
-int estimation()
+void diameter_estimation::process()
 {
     std::cout << "start estimation process" << std::endl;
 
@@ -38,7 +38,7 @@ int estimation()
     printf("-------------------------- \n");
 }
 
-void estimate_normal(pcl::PointCloud<PointT>::Ptr input,
+void diameter_estimation::estimate_normal(pcl::PointCloud<PointT>::Ptr input,
                         pcl::PointCloud<pcl::Normal>::Ptr output_normal)
 {
     pcl::NormalEstimation<PointT, pcl::Normal> ne;
@@ -49,7 +49,7 @@ void estimate_normal(pcl::PointCloud<PointT>::Ptr input,
     ne.compute(*output_normal);
 }
 
-double segment_cylinder(pcl::PointCloud<PointT>::Ptr input,
+double diameter_estimation::segment_cylinder(pcl::PointCloud<PointT>::Ptr input,
                       pcl::PointCloud<pcl::Normal>::Ptr input_normals,
                       pcl::PointCloud<PointT>::Ptr output)
 {

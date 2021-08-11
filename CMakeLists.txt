@@ -17,11 +17,11 @@ add_definitions(${PCL_DEFINITIONS})
 
 set(SOURCES
     main.cpp
-    estimation.cpp
+    diameter_estimation.cpp
 )
 
 set(HEADERS
-    estimation.hpp
+    diameter_estimation.hpp
 )
 
 add_executable(a.out ${SOURCES} ${HEADERS})
