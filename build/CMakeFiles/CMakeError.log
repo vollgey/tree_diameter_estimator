@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d05b6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d05b6.dir/build.make CMakeFiles/cmTC_d05b6.dir/build
+make[1]: Entering directory '/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d05b6.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_d05b6.dir/CheckSymbolExists.cxx.o -c /home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_d05b6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d05b6.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_d05b6.dir/CheckSymbolExists.cxx.o  -o cmTC_d05b6 
+CMakeFiles/cmTC_d05b6.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_d05b6.dir/build.make:97: recipe for target 'cmTC_d05b6' failed
+make[1]: *** [cmTC_d05b6] Error 1
+make[1]: Leaving directory '/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d05b6/fast' failed
+make: *** [cmTC_d05b6/fast] Error 2
+
+File /home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9cf77/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9cf77.dir/build.make CMakeFiles/cmTC_9cf77.dir/build
+make[1]: Entering directory '/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9cf77.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9cf77.dir/CheckFunctionExists.cxx.o -c /home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_9cf77
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9cf77.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_9cf77.dir/CheckFunctionExists.cxx.o  -o cmTC_9cf77 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_9cf77.dir/build.make:97: recipe for target 'cmTC_9cf77' failed
+make[1]: *** [cmTC_9cf77] Error 1
+make[1]: Leaving directory '/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9cf77/fast' failed
+make: *** [cmTC_9cf77/fast] Error 2
+
+
