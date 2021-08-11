@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hayashi/Documents/devel/tree_diameter_estimator/estimation.cpp" "/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/a.out.dir/estimation.cpp.o"
+  "/home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.cpp" "/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/a.out.dir/diameter_estimation.cpp.o"
   "/home/hayashi/Documents/devel/tree_diameter_estimator/main.cpp" "/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles/a.out.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

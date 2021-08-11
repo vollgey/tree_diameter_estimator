@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/hayashi/Documents/devel/tree_diameter_estimator/estimation.cpp
-estimation.hpp
-/home/hayashi/Documents/devel/tree_diameter_estimator/estimation.hpp
+/home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.cpp
+diameter_estimation.hpp
+/home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.hpp
 
-/home/hayashi/Documents/devel/tree_diameter_estimator/estimation.hpp
+/home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.hpp
 pcl/point_types.h
 -
 pcl/point_cloud.h
@@ -47,8 +47,8 @@ iostream
 -
 
 /home/hayashi/Documents/devel/tree_diameter_estimator/main.cpp
-estimation.hpp
-/home/hayashi/Documents/devel/tree_diameter_estimator/estimation.hpp
+diameter_estimation.hpp
+/home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.hpp
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

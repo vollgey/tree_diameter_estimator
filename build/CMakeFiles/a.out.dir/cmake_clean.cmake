@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/a.out.dir/main.cpp.o"
-  "CMakeFiles/a.out.dir/estimation.cpp.o"
+  "CMakeFiles/a.out.dir/diameter_estimation.cpp.o"
   "a.out.pdb"
   "a.out"
 )

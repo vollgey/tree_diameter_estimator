@@ -81,40 +81,40 @@ CMakeFiles/a.out.dir/main.cpp.o.provides: CMakeFiles/a.out.dir/main.cpp.o.requir
 CMakeFiles/a.out.dir/main.cpp.o.provides.build: CMakeFiles/a.out.dir/main.cpp.o
 
 
-CMakeFiles/a.out.dir/estimation.cpp.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/estimation.cpp.o: ../estimation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/a.out.dir/estimation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/estimation.cpp.o -c /home/hayashi/Documents/devel/tree_diameter_estimator/estimation.cpp
+CMakeFiles/a.out.dir/diameter_estimation.cpp.o: CMakeFiles/a.out.dir/flags.make
+CMakeFiles/a.out.dir/diameter_estimation.cpp.o: ../diameter_estimation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hayashi/Documents/devel/tree_diameter_estimator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/a.out.dir/diameter_estimation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/diameter_estimation.cpp.o -c /home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.cpp
 
-CMakeFiles/a.out.dir/estimation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/estimation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hayashi/Documents/devel/tree_diameter_estimator/estimation.cpp > CMakeFiles/a.out.dir/estimation.cpp.i
+CMakeFiles/a.out.dir/diameter_estimation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/diameter_estimation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.cpp > CMakeFiles/a.out.dir/diameter_estimation.cpp.i
 
-CMakeFiles/a.out.dir/estimation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/estimation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hayashi/Documents/devel/tree_diameter_estimator/estimation.cpp -o CMakeFiles/a.out.dir/estimation.cpp.s
+CMakeFiles/a.out.dir/diameter_estimation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/diameter_estimation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hayashi/Documents/devel/tree_diameter_estimator/diameter_estimation.cpp -o CMakeFiles/a.out.dir/diameter_estimation.cpp.s
 
-CMakeFiles/a.out.dir/estimation.cpp.o.requires:
+CMakeFiles/a.out.dir/diameter_estimation.cpp.o.requires:
 
-.PHONY : CMakeFiles/a.out.dir/estimation.cpp.o.requires
+.PHONY : CMakeFiles/a.out.dir/diameter_estimation.cpp.o.requires
 
-CMakeFiles/a.out.dir/estimation.cpp.o.provides: CMakeFiles/a.out.dir/estimation.cpp.o.requires
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/estimation.cpp.o.provides.build
-.PHONY : CMakeFiles/a.out.dir/estimation.cpp.o.provides
+CMakeFiles/a.out.dir/diameter_estimation.cpp.o.provides: CMakeFiles/a.out.dir/diameter_estimation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/diameter_estimation.cpp.o.provides.build
+.PHONY : CMakeFiles/a.out.dir/diameter_estimation.cpp.o.provides
 
-CMakeFiles/a.out.dir/estimation.cpp.o.provides.build: CMakeFiles/a.out.dir/estimation.cpp.o
+CMakeFiles/a.out.dir/diameter_estimation.cpp.o.provides.build: CMakeFiles/a.out.dir/diameter_estimation.cpp.o
 
 
 # Object files for target a.out
 a_out_OBJECTS = \
 "CMakeFiles/a.out.dir/main.cpp.o" \
-"CMakeFiles/a.out.dir/estimation.cpp.o"
+"CMakeFiles/a.out.dir/diameter_estimation.cpp.o"
 
 # External object files for target a.out
 a_out_EXTERNAL_OBJECTS =
 
 a.out: CMakeFiles/a.out.dir/main.cpp.o
-a.out: CMakeFiles/a.out.dir/estimation.cpp.o
+a.out: CMakeFiles/a.out.dir/diameter_estimation.cpp.o
 a.out: CMakeFiles/a.out.dir/build.make
 a.out: /usr/lib/x86_64-linux-gnu/libboost_system.so
 a.out: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
@@ -399,7 +399,7 @@ CMakeFiles/a.out.dir/build: a.out
 .PHONY : CMakeFiles/a.out.dir/build
 
 CMakeFiles/a.out.dir/requires: CMakeFiles/a.out.dir/main.cpp.o.requires
-CMakeFiles/a.out.dir/requires: CMakeFiles/a.out.dir/estimation.cpp.o.requires
+CMakeFiles/a.out.dir/requires: CMakeFiles/a.out.dir/diameter_estimation.cpp.o.requires
 
 .PHONY : CMakeFiles/a.out.dir/requires
 

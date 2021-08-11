@@ -123,32 +123,32 @@ a.out/fast:
 	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/build
 .PHONY : a.out/fast
 
-estimation.o: estimation.cpp.o
+diameter_estimation.o: diameter_estimation.cpp.o
 
-.PHONY : estimation.o
+.PHONY : diameter_estimation.o
 
 # target to build an object file
-estimation.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/estimation.cpp.o
-.PHONY : estimation.cpp.o
+diameter_estimation.cpp.o:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/diameter_estimation.cpp.o
+.PHONY : diameter_estimation.cpp.o
 
-estimation.i: estimation.cpp.i
+diameter_estimation.i: diameter_estimation.cpp.i
 
-.PHONY : estimation.i
+.PHONY : diameter_estimation.i
 
 # target to preprocess a source file
-estimation.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/estimation.cpp.i
-.PHONY : estimation.cpp.i
+diameter_estimation.cpp.i:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/diameter_estimation.cpp.i
+.PHONY : diameter_estimation.cpp.i
 
-estimation.s: estimation.cpp.s
+diameter_estimation.s: diameter_estimation.cpp.s
 
-.PHONY : estimation.s
+.PHONY : diameter_estimation.s
 
 # target to generate assembly for a file
-estimation.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/estimation.cpp.s
-.PHONY : estimation.cpp.s
+diameter_estimation.cpp.s:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/diameter_estimation.cpp.s
+.PHONY : diameter_estimation.cpp.s
 
 main.o: main.cpp.o
 
@@ -186,9 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... a.out"
 	@echo "... edit_cache"
-	@echo "... estimation.o"
-	@echo "... estimation.i"
-	@echo "... estimation.s"
+	@echo "... diameter_estimation.o"
+	@echo "... diameter_estimation.i"
+	@echo "... diameter_estimation.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
