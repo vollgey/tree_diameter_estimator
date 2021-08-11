@@ -1,5 +1,7 @@
-#include "estimation.hpp"
+#include "diameter_estimation.hpp"
 
 int main() {
-    estimation();
+    printf("hello \n");
+    diameter_estimation estimator;
+    estimator.process();
 }
