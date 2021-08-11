@@ -4,6 +4,9 @@ void diameter_estimation::process()
 {
     std::cout << "start estimation process" << std::endl;
 
+    pcl::visualization::CloudViewer viewer_raw("raw");
+    // pcl::visualization::CloudViewer viewer_cylinder("cylinder");
+
     pcl::PointCloud<PointT>::Ptr cloud (new pcl::PointCloud<PointT>);
     pcl::PointCloud<PointT>::Ptr cloud_filtered (new pcl::PointCloud<PointT>);
     pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
@@ -36,6 +39,16 @@ void diameter_estimation::process()
     printf("diameter: %5lf [m] \n", diameter);
     printf("diameter coeffs: %5lf [m] \n", diameter_coeffs);
     printf("-------------------------- \n");
+    
+
+    viewer_raw.showCloud(cloud_cylinder);
+    while (!viewer_raw.wasStopped ())
+    {
+    }
+    // viewer_cylinder.showCloud(cloud_cylinder);
+    // while (!viewer_cylinder.wasStopped ())
+    // {
+    // }
 }
 
 void diameter_estimation::estimate_normal(pcl::PointCloud<PointT>::Ptr input,
@@ -53,11 +66,6 @@ double diameter_estimation::segment_cylinder(pcl::PointCloud<PointT>::Ptr input,
                       pcl::PointCloud<pcl::Normal>::Ptr input_normals,
                       pcl::PointCloud<PointT>::Ptr output)
 {
-    double normal_distance_weight = 0.1;
-    double max_iterations = 10000; 
-    double distance_thres = 0.05; 
-    double radius_min = 0;
-    double radius_max = 0.1;
     if (input->size() < 10)
         return 0;
     //instance of RANSAC segmentation processing object
