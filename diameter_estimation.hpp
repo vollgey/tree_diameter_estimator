@@ -51,17 +51,17 @@ public:
 
 
     //parameters(downsample)
-    double leaf_size = 0.005;
+    double leaf_size = 0.01;
 
     //parameters(passthrough)
     double pt_min = 0.0;
-    double pt_max = 0.4;
+    double pt_max = 1.2;
 
     //parameters(cylinder_segmentation)
-    double normal_distance_weight = 0.01;
+    double normal_distance_weight = 0.1;
     double max_iterations = 10000; 
-    double distance_thres = 0.005; 
+    double distance_thres = 0.5; 
     double radius_min = 0;
-    double radius_max = 0.2;
+    double radius_max = 0.5;
 };                    
 #endif

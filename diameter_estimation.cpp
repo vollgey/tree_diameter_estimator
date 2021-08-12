@@ -15,11 +15,11 @@ void diameter_estimation::process()
     pcl::PointCloud<PointT>::Ptr cloud_cylinder (new pcl::PointCloud<PointT>());
 
     pcl::PCDReader reader;
-    reader.read<PointT> (RESOURCE_DIR"sample_raw.pcd", *raw);
+    reader.read<PointT> (RESOURCE_DIR"fake_tree.pcd", *raw);
     remove_noise(raw, cloud);
-    passthrough(cloud, cloud_filtered);
-    // passthrough(cloud, cloud_pt);
-    // downsample(cloud_pt, cloud_filtered, leaf_size);
+    // passthrough(cloud, cloud_filtered);
+    passthrough(cloud, cloud_pt);
+    downsample(cloud_pt, cloud_filtered, leaf_size);
     estimate_normal(cloud_filtered, cloud_normals);
     double diameter_seg = segment_cylinder(cloud_filtered, cloud_normals, cloud_cylinder);
 
@@ -35,12 +35,12 @@ void diameter_estimation::process()
     double diameter = maxPt.y - minPt.y;
 
     printf("pub points size: %5d \n", (int)cloud_cylinder->size());
-    printf("diameter: %5lf [m] \n", diameter);
+    // printf("diameter: %5lf [m] \n", diameter);
     printf("diameter coeffs: %5lf [m] \n", diameter_seg);
     printf("-------------------------- \n");
     
     // viewer.addPointCloud(cloud, "cloud");
-    viewer.addPointCloud(cloud_cylinder,"cloud_filtered");
+    viewer.addPointCloud(cloud_cylinder, "cloud_filtered");
     viewer.spin();
     
     // viewer.showCloud(cloud);
