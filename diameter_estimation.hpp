@@ -8,6 +8,8 @@
 
 #include <pcl/filters/passthrough.h>
 #include <pcl/filters/extract_indices.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/statistical_outlier_removal.h>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/kdtree/kdtree.h>
 #include <pcl/search/kdtree.h>
@@ -33,17 +35,33 @@ public:
     virtual ~diameter_estimation(){};
     
     void process();
+    void remove_noise(pcl::PointCloud<PointT>::Ptr input,
+                        pcl::PointCloud<PointT>::Ptr output);
+    void downsample(pcl::PointCloud<PointT>::Ptr input,
+                        pcl::PointCloud<PointT>::Ptr output,
+                        double leaf_size);
+    void passthrough(pcl::PointCloud<PointT>::Ptr input,
+                          pcl::PointCloud<PointT>::Ptr output
+                          );
     void estimate_normal(pcl::PointCloud<PointT>::Ptr input,
                           pcl::PointCloud<pcl::Normal>::Ptr output_normal);             
     double segment_cylinder(pcl::PointCloud<PointT>::Ptr input,
                         pcl::PointCloud<pcl::Normal>::Ptr input_normals,
                         pcl::PointCloud<PointT>::Ptr output);
 
-    //parameters
-    double normal_distance_weight = 0.1;
+
+    //parameters(downsample)
+    double leaf_size = 0.005;
+
+    //parameters(passthrough)
+    double pt_min = 0.0;
+    double pt_max = 0.4;
+
+    //parameters(cylinder_segmentation)
+    double normal_distance_weight = 0.01;
     double max_iterations = 10000; 
-    double distance_thres = 0.05; 
+    double distance_thres = 0.005; 
     double radius_min = 0;
-    double radius_max = 1.0;
+    double radius_max = 0.2;
 };                    
 #endif

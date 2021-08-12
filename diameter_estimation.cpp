@@ -4,29 +4,28 @@ void diameter_estimation::process()
 {
     std::cout << "start estimation process" << std::endl;
 
-    pcl::visualization::CloudViewer viewer_raw("raw");
+    pcl::visualization::PCLVisualizer viewer("raw");
     // pcl::visualization::CloudViewer viewer_cylinder("cylinder");
 
+    pcl::PointCloud<PointT>::Ptr raw (new pcl::PointCloud<PointT>);
     pcl::PointCloud<PointT>::Ptr cloud (new pcl::PointCloud<PointT>);
+    pcl::PointCloud<PointT>::Ptr cloud_pt (new pcl::PointCloud<PointT>);
     pcl::PointCloud<PointT>::Ptr cloud_filtered (new pcl::PointCloud<PointT>);
     pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
     pcl::PointCloud<PointT>::Ptr cloud_cylinder (new pcl::PointCloud<PointT>());
 
     pcl::PCDReader reader;
-    reader.read<PointT> (RESOURCE_DIR"sample.pcd", *cloud);
-    std::cerr << *cloud << std::endl;
-
-    pcl::PassThrough<PointT> pass;
-    pass.setInputCloud (cloud);
-    pass.setFilterFieldName ("z");
-    pass.setFilterLimits (0.0, 1.0);
-    //pass.setFilterLimitsNegative (true);
-    pass.filter (*cloud_filtered);
-    std::cerr << *cloud_filtered << std::endl;
-
+    reader.read<PointT> (RESOURCE_DIR"sample_raw.pcd", *raw);
+    remove_noise(raw, cloud);
+    passthrough(cloud, cloud_filtered);
+    // passthrough(cloud, cloud_pt);
+    // downsample(cloud_pt, cloud_filtered, leaf_size);
     estimate_normal(cloud_filtered, cloud_normals);
-    double diameter_coeffs = segment_cylinder(cloud_filtered, cloud_normals, cloud_cylinder);
-    std::cerr << diameter_coeffs << std::endl;
+    double diameter_seg = segment_cylinder(cloud_filtered, cloud_normals, cloud_cylinder);
+
+    std::cerr << *raw << std::endl;
+    std::cerr << *cloud_pt << std::endl;
+    std::cerr << *cloud_filtered << std::endl;
 
     //--------------------------------------------------
     // calcurate diameter
@@ -37,18 +36,50 @@ void diameter_estimation::process()
 
     printf("pub points size: %5d \n", (int)cloud_cylinder->size());
     printf("diameter: %5lf [m] \n", diameter);
-    printf("diameter coeffs: %5lf [m] \n", diameter_coeffs);
+    printf("diameter coeffs: %5lf [m] \n", diameter_seg);
     printf("-------------------------- \n");
     
-
-    viewer_raw.showCloud(cloud_cylinder);
-    while (!viewer_raw.wasStopped ())
-    {
-    }
-    // viewer_cylinder.showCloud(cloud_cylinder);
-    // while (!viewer_cylinder.wasStopped ())
+    // viewer.addPointCloud(cloud, "cloud");
+    viewer.addPointCloud(cloud_cylinder,"cloud_filtered");
+    viewer.spin();
+    
+    // viewer.showCloud(cloud);
+    // viewer.showCloud(cloud_filtered);
+    // viewer.runOnVisualizationThreadOnce();
+    // while (!viewer.wasStopped ())
     // {
     // }
+}
+
+void diameter_estimation::remove_noise(pcl::PointCloud<PointT>::Ptr input,
+                            pcl::PointCloud<PointT>::Ptr output)
+{
+    pcl::StatisticalOutlierRemoval<PointT> sor;
+    sor.setInputCloud(input);
+    sor.setMeanK(50);
+    sor.setStddevMulThresh(1.0);
+    sor.filter(*output);
+}
+
+void diameter_estimation::passthrough(pcl::PointCloud<PointT>::Ptr input,
+                    pcl::PointCloud<PointT>::Ptr output)
+{
+    pcl::PassThrough<PointT> pass;
+    pass.setInputCloud (input);
+    pass.setFilterFieldName ("z");
+    pass.setFilterLimits (pt_min, pt_max);
+    //pass.setFilterLimitsNegative (true);
+    pass.filter (*output);
+}
+
+void diameter_estimation::downsample(pcl::PointCloud<PointT>::Ptr input,
+                          pcl::PointCloud<PointT>::Ptr output,
+                          double leaf_size)
+{
+    pcl::VoxelGrid<PointT> vg;
+    vg.setInputCloud(input);
+    vg.setLeafSize(leaf_size, leaf_size, leaf_size);
+    vg.filter(*output);
 }
 
 void diameter_estimation::estimate_normal(pcl::PointCloud<PointT>::Ptr input,
